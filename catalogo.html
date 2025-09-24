@@ -1,0 +1,724 @@
+<!--
+  VERSÃO FINAL E CORRETA
+
+  INSTRUÇÕES PARA PUBLICAR:
+  Siga o passo a passo fornecido para colocar este catálogo online.
+  O mais importante é que este arquivo "catalogo.html" e todas as imagens
+  estejam juntos na mesma pasta antes de enviar para o servidor.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chocolates 2 Amores - Catálogo de Geladinhos Gourmet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ------------------- */
+    /* VARIÁVEIS E GLOBAIS */
+    /* ------------------- */
+    :root {
+      --brand-teal: #4ec3c7;
+      --brand-pink: #f07aa8;
+      --brand-green-whatsapp: #25d366;
+      --ink: #2a2a2a;
+      --ink-light: #5f5f5f;
+      --bg: #f9fbfb;
+      --card-bg: #ffffff;
+      --border-color: #eef2f2;
+      --shadow-color: 220 23% 85%;
+      --shadow-elevation-low:
+        0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+        0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
+        1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.34);
+      --shadow-elevation-medium:
+        0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+        0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+        2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+        5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #f0f0f0;
+        --ink-light: #b0b0b0;
+        --bg: #1a1a1a;
+        --card-bg: #2a2a2a;
+        --border-color: #3a3a3a;
+        --shadow-color: 220 50% 5%;
+      }
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ------------------- */
+    /* CABEÇALHO           */
+    /* ------------------- */
+    .site-header {
+      padding: 32px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 48px;
+    }
+    .site-header .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--brand-teal);
+      margin-bottom: 8px;
+    }
+    .site-header .tagline {
+      font-size: 1rem;
+      color: var(--ink-light);
+      background-color: var(--border-color);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    /* ------------------- */
+    /* CATÁLOGO E GRID     */
+    /* ------------------- */
+    .catalog {
+      padding-bottom: 48px;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 640px) {
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .catalog-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* ------------------- */
+    /* CARD DE PRODUTO     */
+    /* ------------------- */
+    .product-card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--shadow-elevation-low);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-elevation-medium);
+    }
+
+    .card-image-wrapper {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .card-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    
+    .product-card:hover .card-image-wrapper img {
+        transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .card-description {
+      font-size: 0.9rem;
+      color: var(--ink-light);
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-top: 1px solid var(--border-color);
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .card-meta .price {
+      color: var(--brand-pink);
+      font-size: 1.1rem;
+    }
+    .card-meta .volume {
+      color: var(--ink-light);
+    }
+
+    .button-group {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card-button {
+      display: inline-block;
+      text-align: center;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .card-button:focus-visible {
+      outline: 2px solid var(--brand-pink);
+      outline-offset: 2px;
+    }
+    
+    .whatsapp-button {
+      background-color: var(--brand-green-whatsapp);
+      color: #fff;
+    }
+
+    .whatsapp-button:hover {
+       background-color: #1ebe57;
+       transform: scale(1.02);
+    }
+    
+    .suggestion-button {
+        background-color: var(--brand-teal);
+        color: #fff;
+    }
+    .suggestion-button:hover {
+        background-color: #3eb5b9;
+        transform: scale(1.02);
+    }
+    
+    .badge {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background-color: var(--brand-pink);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 1;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .badge.new {
+        background-color: var(--brand-teal);
+    }
+
+    /* ------------------- */
+    /* MODAL               */
+    /* ------------------- */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .modal-content {
+      background-color: var(--card-bg);
+      padding: 30px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transform: translateY(-20px);
+      transition: transform 0.3s ease;
+    }
+    .modal-overlay.active .modal-content {
+        transform: translateY(0);
+    }
+    .modal-close-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--ink-light);
+      cursor: pointer;
+    }
+    #modal-title {
+      color: var(--brand-teal);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    #modal-body {
+      min-height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #modal-text-content p {
+        margin-bottom: 1rem;
+        color: var(--ink);
+    }
+    #modal-text-content p:last-child {
+        margin-bottom: 0;
+    }
+    #modal-text-content strong {
+        color: var(--brand-pink);
+    }
+    .spinner {
+      border: 4px solid var(--border-color);
+      border-top: 4px solid var(--brand-teal);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+
+    /* ------------------- */
+    /* RODAPÉ              */
+    /* ------------------- */
+    .site-footer {
+      padding: 32px 0;
+      margin-top: 48px;
+      background-color: var(--card-bg);
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--ink-light);
+    }
+
+    .footer-links {
+        margin-bottom: 16px;
+    }
+
+    .footer-links a {
+        color: var(--brand-teal);
+        text-decoration: none;
+        margin: 0 12px;
+        font-weight: 600;
+    }
+    .footer-links a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-notice {
+        margin-bottom: 8px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Chocolates 2 Amores</h1>
+      <p class="tagline">Feito artesanalmente • Ingredientes selecionados</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="catalog container">
+      <div class="catalog-grid">
+
+        <!-- Produto 1: Kinder Bueno -->
+        <article class="product-card">
+          <div class="card-image-wrapper">
+            <img src="kinderbueno.png" alt="Geladinho gourmet sabor Kinder Bueno" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Kinder Bueno</h3>
+            <p class="card-description">Geladinho gourmet cremoso com o autêntico sabor do chocolate Kinder Bueno.</p>
+            <div class="card-meta">
+              <span class="volume">120 ml</span>
+              <span class="price">R$ 9,00</span>
+            </div>
+            <div class="button-group">
+                <button class="card-button suggestion-button" data-flavor="Kinder Bueno">✨ Sugestões do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Kinder%20Bueno" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 2: Charge -->
+        <article class="product-card">
+          <div class="card-image-wrapper">
+            <img src="charge.png" alt="Geladinho gourmet sabor Charge" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Charge</h3>
+            <p class="card-description">A combinação perfeita de chocolate e amendoim em um geladinho cremoso.</p>
+            <div class="card-meta">
+              <span class="volume">120 ml</span>
+              <span class="price">R$ 9,00</span>
+            </div>
+            <div class="button-group">
+                <button class="card-button suggestion-button" data-flavor="Charge">✨ Sugestões do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Charge" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 3: Maracujá com Nutella -->
+        <article class="product-card">
+          <div class="card-image-wrapper">
+            <img src="maracujanutella.png" alt="Geladinho gourmet sabor Maracujá com Nutella" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Maracujá com Nutella</h3>
+            <p class="card-description">O azedinho do maracujá com a doçura inconfundível da Nutella.</p>
+            <div class="card-meta">
+              <span class="volume">120 ml</span>
+              <span class="price">R$ 9,00</span>
+            </div>
+            <div class="button-group">
+                <button class="card-button suggestion-button" data-flavor="Maracujá com Nutella">✨ Sugestões do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Maracujá%20com%20Nutella" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 4: Prestígio -->
+        <article class="product-card">
+          <div class="card-image-wrapper">
+            <img src="prestigio.png" alt="Geladinho gourmet sabor Prestígio" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Prestígio</h3>
+            <p class="card-description">Cremoso e com pedaços de coco, coberto com uma casquinha de chocolate.</p>
+            <div class="card-meta">
+              <span class="volume">120 ml</span>
+              <span class="price">R$ 9,00</span>
+            </div>
+            <div class="button-group">
+                <button class="card-button suggestion-button" data-flavor="Prestígio">✨ Sugestões do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Prestígio" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 5: Paçoca -->
+        <article class="product-card">
+          <div class="card-image-wrapper">
+            <img src="pacoca.png" alt="Geladinho gourmet sabor Paçoca, cremoso e com amendoim." loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Paçoca</h3>
+            <p class="card-description">O sabor irresistível da paçoca em uma versão gelada e super cremosa.</p>
+            <div class="card-meta">
+              <span class="volume">120 ml</span>
+              <span class="price">R$ 9,00</span>
+            </div>
+            <div class="button-group">
+                <button class="card-button suggestion-button" data-flavor="Paçoca">✨ Sugestões do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Paçoca" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 6: Ovomaltine -->
+        <article class="product-card">
+          <div class="card-image-wrapper">
+            <img src="ovomaltine.png" alt="Geladinho gourmet sabor Ovomaltine, com os flocos crocantes" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Ovomaltine</h3>
+            <p class="card-description">Cremosidade e os flocos crocantes de Ovomaltine que todo mundo ama.</p>
+            <div class="card-meta">
+              <span class="volume">120 ml</span>
+              <span class="price">R$ 9,00</span>
+            </div>
+            <div class="button-group">
+                <button class="card-button suggestion-button" data-flavor="Ovomaltine">✨ Sugestões do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Ovomaltine" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Produto 7: Alpino -->
+        <article class="product-card">
+          <div class="card-image-wrapper">
+            <img src="alpino.png" alt="Geladinho gourmet sabor Alpino" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Alpino</h3>
+            <p class="card-description">O sabor único e marcante do chocolate Alpino em uma versão gelada.</p>
+            <div class="card-meta">
+              <span class="volume">120 ml</span>
+              <span class="price">R$ 9,00</span>
+            </div>
+            <div class="button-group">
+                <button class="card-button suggestion-button" data-flavor="Alpino">✨ Sugestões do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Alpino" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Produto 8: Franui -->
+        <article class="product-card">
+          <div class="badge new">Novidade</div>
+          <div class="card-image-wrapper">
+            <img src="franui.png" alt="Geladinho gourmet sabor Franui, com framboesa e chocolate branco" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Franui</h3>
+            <p class="card-description">Inspirado no famoso doce, com framboesa e uma camada de chocolate branco.</p>
+            <div class="card-meta">
+              <span class="volume">120 ml</span>
+              <span class="price">R$ 9,00</span>
+            </div>
+            <div class="button-group">
+                <button class="card-button suggestion-button" data-flavor="Franui (Framboesa com chocolate branco)">✨ Sugestões do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Franui" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Produto 9: Ferrero Rocher -->
+        <article class="product-card">
+          <div class="card-image-wrapper">
+            <img src="ferrerorocher.png" alt="Geladinho gourmet sabor Ferrero Rocher" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Ferrero Rocher</h3>
+            <p class="card-description">Avelãs selecionadas e chocolate cremoso, inspirado no bombom Ferrero Rocher.</p>
+            <div class="card-meta">
+              <span class="volume">120 ml</span>
+              <span class="price">R$ 9,00</span>
+            </div>
+            <div class="button-group">
+                <button class="card-button suggestion-button" data-flavor="Ferrero Rocher">✨ Sugestões do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Ferrero%20Rocher" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 10: Pistache -->
+        <article class="product-card">
+          <div class="card-image-wrapper">
+            <img src="pistache.png" alt="Geladinho gourmet sabor Pistache" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Pistache</h3>
+            <p class="card-description">Inconfundível sabor de pistache.</p>
+            <div class="card-meta">
+              <span class="volume">120 ml</span>
+              <span class="price">R$ 9,00</span>
+            </div>
+            <div class="button-group">
+                <button class="card-button suggestion-button" data-flavor="Pistache">✨ Sugestões do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Pistache" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 11: Ninho com Nutella -->
+        <article class="product-card">
+          <div class="card-image-wrapper">
+            <img src="ninhonutella.png" alt="Geladinho gourmet sabor Ninho com Nutella" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Ninho com Nutella</h3>
+            <p class="card-description">Combinação perfeita</p>
+            <div class="card-meta">
+              <span class="volume">120 ml</span>
+              <span class="price">R$ 9,00</span>
+            </div>
+            <div class="button-group">
+                <button class="card-button suggestion-button" data-flavor="Ninho com Nutella">✨ Sugestões do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Ninho%20com%20Nutella" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="https://wa.me/5515997023586" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <span>•</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+        <p class="footer-notice"><strong>Aviso de alergênicos:</strong> Todos os produtos contêm leite e derivados. Podem conter traços de amendoim, avelã, castanhas e glúten.</p>
+        <p class="footer-copyright">&copy; 2024 Chocolates 2 Amores – Geladinhos Gourmet. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Modal para Sugestões da IA -->
+  <div id="suggestion-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close-button">&times;</button>
+      <h3 id="modal-title">Sugestões do Chef</h3>
+      <div id="modal-body">
+        <div class="spinner"></div>
+        <div id="modal-text-content" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('suggestion-modal');
+        const modalCloseButton = modal.querySelector('.modal-close-button');
+        const modalTextContent = document.getElementById('modal-text-content');
+        const spinner = modal.querySelector('.spinner');
+        const suggestionButtons = document.querySelectorAll('.suggestion-button');
+
+        const apiKey = ""; // A chave da API do Gemini será injetada aqui
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+        function openModal() {
+            modal.classList.add('active');
+            spinner.style.display = 'block';
+            modalTextContent.style.display = 'none';
+            modalTextContent.innerHTML = '';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        async function fetchWithRetry(url, options, retries = 3, delay = 1000) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (response.ok) return response;
+                } catch (error) {
+                    if (i === retries - 1) throw error;
+                }
+                await new Promise(res => setTimeout(res, delay * Math.pow(2, i)));
+            }
+            throw new Error('API request failed after multiple retries.');
+        }
+
+        async function fetchSuggestions(flavorName) {
+            openModal();
+            
+            const prompt = `Você é um chef e sommelier de sobremesas, especializado em geladinhos gourmet. Para o sabor "${flavorName}", crie duas sugestões curtas (uma frase cada) em português do Brasil: 1. Uma "Harmonização Perfeita" (uma bebida ou outra sobremesa que combine). 2. Uma "Ocasião Ideal" (um momento perfeito para aproveitar). Responda APENAS com dois parágrafos HTML, usando <strong> para os títulos. Exemplo: <p><strong>Harmonização Perfeita:</strong> Um café espresso gelado.</p><p><strong>Ocasião Ideal:</strong> Para relaxar na varanda em uma tarde quente de verão.</p>`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+            };
+
+            try {
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    modalTextContent.innerHTML = candidate.content.parts[0].text;
+                } else {
+                    throw new Error('Resposta da API inválida.');
+                }
+
+            } catch (error) {
+                console.error("Erro ao buscar sugestões:", error);
+                modalTextContent.innerHTML = '<p>Desculpe, não foi possível carregar as sugestões no momento. Tente novamente mais tarde.</p>';
+            } finally {
+                spinner.style.display = 'none';
+                modalTextContent.style.display = 'block';
+            }
+        }
+
+        suggestionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const flavor = button.dataset.flavor;
+                if (flavor) {
+                    fetchSuggestions(flavor);
+                }
+            });
+        });
+
+        modalCloseButton.addEventListener('click', closeModal);
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+    });
+  </script>
+
+</body>
+</html>
