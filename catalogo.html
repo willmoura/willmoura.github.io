@@ -1,11 +1,3 @@
-<!--
-  VERSÃO FINAL E CORRETA
-
-  INSTRUÇÕES PARA PUBLICAR:
-  Siga o passo a passo fornecido para colocar este catálogo online.
-  O mais importante é que este arquivo "catalogo.html" e todas as imagens
-  estejam juntos na mesma pasta antes de enviar para o servidor.
--->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -348,6 +340,40 @@
       100% { transform: rotate(360deg); }
     }
 
+    /* ------------------- */
+    /* INFO. NUTRICIONAIS  */
+    /* ------------------- */
+    .nutritional-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+        .nutritional-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .nutritional-item {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: var(--shadow-elevation-low);
+    }
+
+    .nutritional-item h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 12px;
+    }
+
+    .nutritional-item p {
+        color: var(--ink-light);
+        font-size: 0.9rem;
+    }
 
     /* ------------------- */
     /* RODAPÉ              */
@@ -395,7 +421,6 @@
     <section class="catalog container">
       <div class="catalog-grid">
 
-        <!-- Produto 1: Kinder Bueno -->
         <article class="product-card">
           <div class="card-image-wrapper">
             <img src="kinderbueno.png" alt="Geladinho gourmet sabor Kinder Bueno" loading="lazy">
@@ -414,7 +439,6 @@
           </div>
         </article>
 
-        <!-- Produto 2: Charge -->
         <article class="product-card">
           <div class="card-image-wrapper">
             <img src="charge.png" alt="Geladinho gourmet sabor Charge" loading="lazy">
@@ -433,7 +457,6 @@
           </div>
         </article>
 
-        <!-- Produto 3: Maracujá com Nutella -->
         <article class="product-card">
           <div class="card-image-wrapper">
             <img src="maracujanutella.png" alt="Geladinho gourmet sabor Maracujá com Nutella" loading="lazy">
@@ -452,7 +475,6 @@
           </div>
         </article>
 
-        <!-- Produto 4: Prestígio -->
         <article class="product-card">
           <div class="card-image-wrapper">
             <img src="prestigio.png" alt="Geladinho gourmet sabor Prestígio" loading="lazy">
@@ -471,7 +493,6 @@
           </div>
         </article>
 
-        <!-- Produto 5: Paçoca -->
         <article class="product-card">
           <div class="card-image-wrapper">
             <img src="pacoca.png" alt="Geladinho gourmet sabor Paçoca, cremoso e com amendoim." loading="lazy">
@@ -490,7 +511,6 @@
           </div>
         </article>
 
-        <!-- Produto 6: Ovomaltine -->
         <article class="product-card">
           <div class="card-image-wrapper">
             <img src="ovomaltine.png" alt="Geladinho gourmet sabor Ovomaltine, com os flocos crocantes" loading="lazy">
@@ -509,7 +529,6 @@
           </div>
         </article>
         
-        <!-- Produto 7: Alpino -->
         <article class="product-card">
           <div class="card-image-wrapper">
             <img src="alpino.png" alt="Geladinho gourmet sabor Alpino" loading="lazy">
@@ -528,7 +547,6 @@
           </div>
         </article>
         
-        <!-- Produto 8: Franui -->
         <article class="product-card">
           <div class="badge new">Novidade</div>
           <div class="card-image-wrapper">
@@ -548,7 +566,6 @@
           </div>
         </article>
         
-        <!-- Produto 9: Ferrero Rocher -->
         <article class="product-card">
           <div class="card-image-wrapper">
             <img src="ferrerorocher.png" alt="Geladinho gourmet sabor Ferrero Rocher" loading="lazy">
@@ -567,7 +584,6 @@
           </div>
         </article>
 
-        <!-- Produto 10: Pistache -->
         <article class="product-card">
           <div class="card-image-wrapper">
             <img src="pistache.png" alt="Geladinho gourmet sabor Pistache" loading="lazy">
@@ -586,7 +602,6 @@
           </div>
         </article>
 
-        <!-- Produto 11: Ninho com Nutella -->
         <article class="product-card">
           <div class="card-image-wrapper">
             <img src="ninhonutella.png" alt="Geladinho gourmet sabor Ninho com Nutella" loading="lazy">
@@ -608,7 +623,71 @@
       </div>
     </section>
   </main>
+  
+  <section id="informacoes-nutricionais" class="container" style="padding-top: 48px; padding-bottom: 48px;">
+      <div style="text-align: center; margin-bottom: 48px;">
+          <h2 style="font-size: 2rem; color: var(--brand-teal); margin-bottom: 8px;">Informações Nutricionais e Ingredientes</h2>
+          <p style="font-size: 1rem; color: var(--ink-light);">Detalhes sobre cada um de nossos sabores.</p>
+      </div>
 
+      <div class="nutritional-grid">
+          <div class="nutritional-item">
+              <h3>Kinder Bueno</h3>
+              <p><em>(Informações nutricionais e ingredientes em breve)</em></p>
+          </div>
+
+          <div class="nutritional-item">
+              <h3>Charge</h3>
+              <p><em>(Informações nutricionais e ingredientes em breve)</em></p>
+          </div>
+
+          <div class="nutritional-item">
+              <h3>Maracujá com Nutella</h3>
+              <p><em>(Informações nutricionais e ingredientes em breve)</em></p>
+          </div>
+          
+          <div class="nutritional-item">
+              <h3>Prestígio</h3>
+              <p><em>(Informações nutricionais e ingredientes em breve)</em></p>
+          </div>
+
+          <div class="nutritional-item">
+              <h3>Paçoca</h3>
+              <p><em>(Informações nutricionais e ingredientes em breve)</em></p>
+          </div>
+
+          <div class="nutritional-item">
+              <h3>Ovomaltine</h3>
+              <p><em>(Informações nutricionais e ingredientes em breve)</em></p>
+          </div>
+
+          <div class="nutritional-item">
+              <h3>Alpino</h3>
+              <p><em>(Informações nutricionais e ingredientes em breve)</em></p>
+          </div>
+
+          <div class="nutritional-item">
+              <h3>Franui</h3>
+              <p><em>(Informações nutricionais e ingredientes em breve)</em></p>
+          </div>
+
+          <div class="nutritional-item">
+              <h3>Ferrero Rocher</h3>
+              <p><em>(Informações nutricionais e ingredientes em breve)</em></p>
+          </div>
+
+          <div class="nutritional-item">
+              <h3>Pistache</h3>
+              <p><em>(Informações nutricionais e ingredientes em breve)</em></p>
+          </div>
+
+          <div class="nutritional-item">
+              <h3>Ninho com Nutella</h3>
+              <p><em>(Informações nutricionais e ingredientes em breve)</em></p>
+          </div>
+          
+          </div>
+  </section>
   <footer class="site-footer">
     <div class="container">
         <div class="footer-links">
@@ -621,7 +700,6 @@
     </div>
   </footer>
 
-  <!-- Modal para Sugestões da IA -->
   <div id="suggestion-modal" class="modal-overlay">
     <div class="modal-content">
       <button class="modal-close-button">&times;</button>
@@ -642,7 +720,7 @@
         const suggestionButtons = document.querySelectorAll('.suggestion-button');
 
         const apiKey = ""; // A chave da API do Gemini será injetada aqui
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
         function openModal() {
             modal.classList.add('active');
@@ -721,5 +799,4 @@
   </script>
 
 </body>
-
 </html>
