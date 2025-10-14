@@ -3,24 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chocolates 2 Amores - Catálogo de Geladinhos Gourmet</title>
+  <title>Chocolates 2 Amores - O match perfeito para o seu dia!</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ------------------- */
-    /* VARIÁVEIS E GLOBAIS */
-    /* ------------------- */
+    /* -------------------------------------- */
+    /* VARIÁVEIS E GLOBAIS - IDENTIDADE NOVA */
+    /* -------------------------------------- */
     :root {
-      --brand-teal: #4ec3c7;
-      --brand-pink: #f07aa8;
-      --brand-green-whatsapp: #25d366;
-      --ink: #2a2a2a;
-      --ink-light: #5f5f5f;
-      --bg: #f9fbfb;
-      --card-bg: #ffffff;
-      --border-color: #eef2f2;
-      --shadow-color: 220 23% 85%;
+      /* Nova paleta "Alegria Afetiva" */
+      --bg-color: #FFF9F0;          /* Creme Aconchegante */
+      --card-bg: #FFFFFF;
+      --text-color: #5C3D2E;        /* Marrom Chocolate */
+      --text-light: #8A6D5F;
+      --primary-color: #FF6B6B;     /* Coral Vibrante (para CTAs) */
+      --secondary-color: #E58A8A;   /* Rosa Afetivo (para detalhes) */
+      --accent-color: #A8D8B9;      /* Verde Menta Suave */
+      --border-color: #F0E9E1;
+
+      --font-title: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+
+      /* Sombras mais suaves */
+      --shadow-color: 30 50% 70%;
       --shadow-elevation-low:
         0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
         0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
@@ -34,12 +40,13 @@
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --ink: #f0f0f0;
-        --ink-light: #b0b0b0;
-        --bg: #1a1a1a;
-        --card-bg: #2a2a2a;
-        --border-color: #3a3a3a;
-        --shadow-color: 220 50% 5%;
+        /* Paleta Dark Mode Aconchegante */
+        --bg-color: #2C1D17;
+        --card-bg: #3E2C24;
+        --text-color: #FFF9F0;
+        --text-light: #B8A89E;
+        --border-color: #5C3D2E;
+        --shadow-color: 30 50% 5%;
       }
     }
 
@@ -56,9 +63,10 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg);
-      color: var(--ink);
+      /* Aplicando a nova fonte para o corpo */
+      font-family: var(--font-body);
+      background-color: var(--bg-color);
+      color: var(--text-color);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -86,17 +94,20 @@
       margin-bottom: 48px;
     }
     .site-header .logo {
-      font-size: 2rem;
+      font-family: var(--font-title);
+      font-size: 2.2rem;
       font-weight: 700;
-      color: var(--brand-teal);
+      /* Cor do logo atualizada */
+      color: var(--secondary-color);
       margin-bottom: 8px;
     }
     .site-header .tagline {
       font-size: 1rem;
-      color: var(--ink-light);
-      background-color: var(--border-color);
+      color: var(--text-light);
+      background-color: var(--bg-color);
       display: inline-block;
-      padding: 4px 12px;
+      padding: 6px 16px;
+      border: 1px solid var(--border-color);
       border-radius: 999px;
     }
 
@@ -169,15 +180,16 @@
     }
 
     .card-title {
+      font-family: var(--font-title);
       font-size: 1.5rem;
       font-weight: 600;
-      color: var(--ink);
+      color: var(--text-color);
       margin-bottom: 8px;
     }
 
     .card-description {
       font-size: 0.9rem;
-      color: var(--ink-light);
+      color: var(--text-light);
       margin-bottom: 16px;
       flex-grow: 1;
     }
@@ -190,14 +202,15 @@
       border-top: 1px solid var(--border-color);
       margin-bottom: 16px;
       font-size: 0.9rem;
-      font-weight: 600;
+      font-weight: 700;
     }
     .card-meta .price {
-      color: var(--brand-pink);
-      font-size: 1.1rem;
+      /* Preço com a cor de destaque (coral) */
+      color: var(--primary-color);
+      font-size: 1.2rem;
     }
     .card-meta .volume {
-      color: var(--ink-light);
+      color: var(--text-light);
     }
 
     .button-group {
@@ -210,36 +223,40 @@
     .card-button {
       display: inline-block;
       text-align: center;
+      font-family: var(--font-title);
       font-weight: 600;
       text-decoration: none;
       padding: 12px 24px;
-      border-radius: 8px;
+      /* Botões mais arredondados */
+      border-radius: 50px;
       transition: all 0.3s ease;
       border: none;
       cursor: pointer;
     }
 
     .card-button:focus-visible {
-      outline: 2px solid var(--brand-pink);
+      outline: 2px solid var(--secondary-color);
       outline-offset: 2px;
     }
     
+    /* Botão Principal com a cor Coral Vibrante */
     .whatsapp-button {
-      background-color: var(--brand-green-whatsapp);
+      background-color: var(--primary-color);
       color: #fff;
     }
 
     .whatsapp-button:hover {
-       background-color: #1ebe57;
-       transform: scale(1.02);
+        background-color: #ff5252; /* Um pouco mais escuro no hover */
+        transform: scale(1.02);
     }
     
+    /* Botão Secundário com o Rosa Afetivo */
     .suggestion-button {
-        background-color: var(--brand-teal);
+        background-color: var(--secondary-color);
         color: #fff;
     }
     .suggestion-button:hover {
-        background-color: #3eb5b9;
+        background-color: #e07272;
         transform: scale(1.02);
     }
     
@@ -247,7 +264,7 @@
         position: absolute;
         top: 16px;
         right: 16px;
-        background-color: var(--brand-pink);
+        background-color: var(--secondary-color);
         color: white;
         padding: 4px 10px;
         border-radius: 999px;
@@ -257,7 +274,8 @@
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .badge.new {
-        background-color: var(--brand-teal);
+        background-color: var(--accent-color);
+        color: var(--text-color);
     }
 
     /* ------------------- */
@@ -269,7 +287,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(44, 29, 23, 0.7); /* Fundo com base no marrom */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -303,11 +321,12 @@
       background: none;
       border: none;
       font-size: 2rem;
-      color: var(--ink-light);
+      color: var(--text-light);
       cursor: pointer;
     }
     #modal-title {
-      color: var(--brand-teal);
+      font-family: var(--font-title);
+      color: var(--secondary-color);
       margin-bottom: 20px;
       text-align: center;
     }
@@ -319,17 +338,18 @@
     }
     #modal-text-content p {
         margin-bottom: 1rem;
-        color: var(--ink);
+        color: var(--text-color);
     }
     #modal-text-content p:last-child {
         margin-bottom: 0;
     }
     #modal-text-content strong {
-        color: var(--brand-pink);
+        color: var(--secondary-color);
     }
     .spinner {
       border: 4px solid var(--border-color);
-      border-top: 4px solid var(--brand-teal);
+      /* Spinner com cor de destaque */
+      border-top: 4px solid var(--secondary-color);
       border-radius: 50%;
       width: 40px;
       height: 40px;
@@ -364,15 +384,28 @@
     }
 
     .nutritional-item h3 {
+        font-family: var(--font-title);
         font-size: 1.25rem;
         font-weight: 600;
-        color: var(--ink);
+        color: var(--text-color);
         margin-bottom: 12px;
     }
 
     .nutritional-item p {
-        color: var(--ink-light);
+        color: var(--text-light);
         font-size: 0.9rem;
+    }
+    
+    .section-title h2 {
+        font-family: var(--font-title);
+        font-size: 2.2rem;
+        color: var(--text-color);
+        margin-bottom: 8px;
+    }
+
+    .section-title p {
+        font-size: 1.1rem;
+        color: var(--text-light);
     }
 
     /* ------------------- */
@@ -385,7 +418,7 @@
       border-top: 1px solid var(--border-color);
       text-align: center;
       font-size: 0.9rem;
-      color: var(--ink-light);
+      color: var(--text-light);
     }
 
     .footer-links {
@@ -393,7 +426,7 @@
     }
 
     .footer-links a {
-        color: var(--brand-teal);
+        color: var(--secondary-color);
         text-decoration: none;
         margin: 0 12px;
         font-weight: 600;
@@ -405,6 +438,10 @@
     .footer-notice {
         margin-bottom: 8px;
     }
+    
+    .footer-notice strong {
+      color: var(--text-color);
+    }
 
   </style>
 </head>
@@ -413,7 +450,7 @@
   <header class="site-header">
     <div class="container">
       <h1 class="logo">Chocolates 2 Amores</h1>
-      <p class="tagline">Feito com muito carinho • Ingredientes selecionados</p>
+      <p class="tagline">O match perfeito para o seu dia ❤️</p>
     </div>
   </header>
 
@@ -423,25 +460,25 @@
 
         <article class="product-card">
           <div class="card-image-wrapper">
-            <img src="kinderbueno.png" alt="Geladinho gourmet sabor Kinder Bueno" loading="lazy">
+            <img src="https://willmoura.github.io/assets/kinder_bueno.png" alt="Geladinho gourmet sabor Kinder Bueno" loading="lazy">
           </div>
           <div class="card-content">
             <h3 class="card-title">Kinder Bueno</h3>
-            <p class="card-description">Geladinho gourmet cremoso com o autêntico sabor do chocolate Kinder Bueno.</p>
+            <p class="card-description">A cremosidade do chocolate branco com pedacinhos que amamos.</p>
             <div class="card-meta">
               <span class="volume">120 ml</span>
               <span class="price">R$ 9,00</span>
             </div>
             <div class="button-group">
-                <button class="card-button suggestion-button" data-flavor="Kinder Bueno">✨ Sugestões do Chef</button>
-                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Kinder%20Bueno" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+                <button class="card-button suggestion-button" data-flavor="Kinder Bueno">❤️ Dica do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Kinder%20Bueno" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Quero o meu!</a>
             </div>
           </div>
         </article>
 
         <article class="product-card">
           <div class="card-image-wrapper">
-            <img src="charge.png" alt="Geladinho gourmet sabor Charge" loading="lazy">
+            <img src="https://willmoura.github.io/assets/charge.png" alt="Geladinho gourmet sabor Charge" loading="lazy">
           </div>
           <div class="card-content">
             <h3 class="card-title">Charge</h3>
@@ -451,15 +488,15 @@
               <span class="price">R$ 9,00</span>
             </div>
             <div class="button-group">
-                <button class="card-button suggestion-button" data-flavor="Charge">✨ Sugestões do Chef</button>
-                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Charge" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+                <button class="card-button suggestion-button" data-flavor="Charge">❤️ Dica do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Charge" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Quero o meu!</a>
             </div>
           </div>
         </article>
 
         <article class="product-card">
           <div class="card-image-wrapper">
-            <img src="maracujanutella.png" alt="Geladinho gourmet sabor Maracujá com Nutella" loading="lazy">
+            <img src="https://willmoura.github.io/assets/maracuja.png" alt="Geladinho gourmet sabor Maracujá com Nutella" loading="lazy">
           </div>
           <div class="card-content">
             <h3 class="card-title">Maracujá com Nutella</h3>
@@ -469,15 +506,15 @@
               <span class="price">R$ 9,00</span>
             </div>
             <div class="button-group">
-                <button class="card-button suggestion-button" data-flavor="Maracujá com Nutella">✨ Sugestões do Chef</button>
-                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Maracujá%20com%20Nutella" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+                <button class="card-button suggestion-button" data-flavor="Maracujá com Nutella">❤️ Dica do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Maracujá%20com%20Nutella" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Quero o meu!</a>
             </div>
           </div>
         </article>
 
         <article class="product-card">
           <div class="card-image-wrapper">
-            <img src="prestigio.png" alt="Geladinho gourmet sabor Prestígio" loading="lazy">
+            <img src="https://willmoura.github.io/assets/prestigio.png" alt="Geladinho gourmet sabor Prestígio" loading="lazy">
           </div>
           <div class="card-content">
             <h3 class="card-title">Prestígio</h3>
@@ -487,15 +524,15 @@
               <span class="price">R$ 9,00</span>
             </div>
             <div class="button-group">
-                <button class="card-button suggestion-button" data-flavor="Prestígio">✨ Sugestões do Chef</button>
-                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Prestígio" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+                <button class="card-button suggestion-button" data-flavor="Prestígio">❤️ Dica do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Prestígio" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Quero o meu!</a>
             </div>
           </div>
         </article>
 
         <article class="product-card">
           <div class="card-image-wrapper">
-            <img src="pacoca.png" alt="Geladinho gourmet sabor Paçoca, cremoso e com amendoim." loading="lazy">
+            <img src="https://willmoura.github.io/assets/pacoca.png" alt="Geladinho gourmet sabor Paçoca, cremoso e com amendoim." loading="lazy">
           </div>
           <div class="card-content">
             <h3 class="card-title">Paçoca</h3>
@@ -505,15 +542,15 @@
               <span class="price">R$ 9,00</span>
             </div>
             <div class="button-group">
-                <button class="card-button suggestion-button" data-flavor="Paçoca">✨ Sugestões do Chef</button>
-                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Paçoca" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+                <button class="card-button suggestion-button" data-flavor="Paçoca">❤️ Dica do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Paçoca" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Quero o meu!</a>
             </div>
           </div>
         </article>
 
         <article class="product-card">
           <div class="card-image-wrapper">
-            <img src="ovomaltine.png" alt="Geladinho gourmet sabor Ovomaltine, com os flocos crocantes" loading="lazy">
+            <img src="https://willmoura.github.io/assets/ovomaltine.png" alt="Geladinho gourmet sabor Ovomaltine, com os flocos crocantes" loading="lazy">
           </div>
           <div class="card-content">
             <h3 class="card-title">Ovomaltine</h3>
@@ -523,15 +560,15 @@
               <span class="price">R$ 9,00</span>
             </div>
             <div class="button-group">
-                <button class="card-button suggestion-button" data-flavor="Ovomaltine">✨ Sugestões do Chef</button>
-                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Ovomaltine" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+                <button class="card-button suggestion-button" data-flavor="Ovomaltine">❤️ Dica do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Ovomaltine" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Quero o meu!</a>
             </div>
           </div>
         </article>
         
         <article class="product-card">
           <div class="card-image-wrapper">
-            <img src="alpino.png" alt="Geladinho gourmet sabor Alpino" loading="lazy">
+            <img src="https://willmoura.github.io/assets/alpino.png" alt="Geladinho gourmet sabor Alpino" loading="lazy">
           </div>
           <div class="card-content">
             <h3 class="card-title">Alpino</h3>
@@ -541,8 +578,8 @@
               <span class="price">R$ 9,00</span>
             </div>
             <div class="button-group">
-                <button class="card-button suggestion-button" data-flavor="Alpino">✨ Sugestões do Chef</button>
-                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Alpino" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+                <button class="card-button suggestion-button" data-flavor="Alpino">❤️ Dica do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Alpino" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Quero o meu!</a>
             </div>
           </div>
         </article>
@@ -550,7 +587,7 @@
         <article class="product-card">
           <div class="badge new">Novidade</div>
           <div class="card-image-wrapper">
-            <img src="franui.png" alt="Geladinho gourmet sabor Franui, com framboesa e chocolate branco" loading="lazy">
+            <img src="https://willmoura.github.io/assets/franui.png" alt="Geladinho gourmet sabor Franui, com framboesa e chocolate branco" loading="lazy">
           </div>
           <div class="card-content">
             <h3 class="card-title">Franui</h3>
@@ -560,15 +597,15 @@
               <span class="price">R$ 9,00</span>
             </div>
             <div class="button-group">
-                <button class="card-button suggestion-button" data-flavor="Franui (Framboesa com chocolate branco)">✨ Sugestões do Chef</button>
-                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Franui" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+                <button class="card-button suggestion-button" data-flavor="Franui (Framboesa com chocolate branco)">❤️ Dica do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Franui" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Quero o meu!</a>
             </div>
           </div>
         </article>
         
         <article class="product-card">
           <div class="card-image-wrapper">
-            <img src="ferrerorocher.png" alt="Geladinho gourmet sabor Ferrero Rocher" loading="lazy">
+            <img src="https://willmoura.github.io/assets/ferrerorocher.png" alt="Geladinho gourmet sabor Ferrero Rocher" loading="lazy">
           </div>
           <div class="card-content">
             <h3 class="card-title">Ferrero Rocher</h3>
@@ -578,15 +615,15 @@
               <span class="price">R$ 9,00</span>
             </div>
             <div class="button-group">
-                <button class="card-button suggestion-button" data-flavor="Ferrero Rocher">✨ Sugestões do Chef</button>
-                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Ferrero%20Rocher" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+                <button class="card-button suggestion-button" data-flavor="Ferrero Rocher">❤️ Dica do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Ferrero%20Rocher" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Quero o meu!</a>
             </div>
           </div>
         </article>
 
         <article class="product-card">
           <div class="card-image-wrapper">
-            <img src="pistache.png" alt="Geladinho gourmet sabor Pistache" loading="lazy">
+            <img src="https://willmoura.github.io/assets/pistache.png" alt="Geladinho gourmet sabor Pistache" loading="lazy">
           </div>
           <div class="card-content">
             <h3 class="card-title">Pistache</h3>
@@ -596,26 +633,26 @@
               <span class="price">R$ 9,00</span>
             </div>
             <div class="button-group">
-                <button class="card-button suggestion-button" data-flavor="Pistache">✨ Sugestões do Chef</button>
-                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Pistache" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+                <button class="card-button suggestion-button" data-flavor="Pistache">❤️ Dica do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Pistache" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Quero o meu!</a>
             </div>
           </div>
         </article>
 
         <article class="product-card">
           <div class="card-image-wrapper">
-            <img src="ninhonutella.png" alt="Geladinho gourmet sabor Ninho com Nutella" loading="lazy">
+            <img src="https://willmoura.github.io/assets/ninhonutella.png" alt="Geladinho gourmet sabor Ninho com Nutella" loading="lazy">
           </div>
           <div class="card-content">
             <h3 class="card-title">Ninho com Nutella</h3>
-            <p class="card-description">Combinação perfeita</p>
+            <p class="card-description">A combinação clássica que todo mundo ama, agora na versão geladinha.</p>
             <div class="card-meta">
               <span class="volume">120 ml</span>
               <span class="price">R$ 9,00</span>
             </div>
             <div class="button-group">
-                <button class="card-button suggestion-button" data-flavor="Ninho com Nutella">✨ Sugestões do Chef</button>
-                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Ninho%20com%20Nutella" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+                <button class="card-button suggestion-button" data-flavor="Ninho com Nutella">❤️ Dica do Chef</button>
+                <a href="https://wa.me/5515997023586?text=Quero%20o%20geladinho%20Ninho%20com%20Nutella" class="card-button whatsapp-button" target="_blank" rel="noopener noreferrer">Quero o meu!</a>
             </div>
           </div>
         </article>
@@ -625,9 +662,9 @@
   </main>
   
   <section id="informacoes-nutricionais" class="container" style="padding-top: 48px; padding-bottom: 48px;">
-      <div style="text-align: center; margin-bottom: 48px;">
-          <h2 style="font-size: 2rem; color: var(--brand-teal); margin-bottom: 8px;">Informações Nutricionais e Ingredientes</h2>
-          <p style="font-size: 1rem; color: var(--ink-light);">Detalhes sobre cada um de nossos sabores.</p>
+      <div class="section-title" style="text-align: center; margin-bottom: 48px;">
+          <h2>Transparência é uma prova de amor</h2>
+          <p>Detalhes sobre cada um de nossos sabores.</p>
       </div>
 
       <div class="nutritional-grid">
@@ -686,7 +723,7 @@
               <p><em>(Informações nutricionais e ingredientes em breve)</em></p>
           </div>
           
-          </div>
+        </div>
   </section>
   <footer class="site-footer">
     <div class="container">
@@ -696,14 +733,14 @@
             <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
         <p class="footer-notice"><strong>Aviso de alergênicos:</strong> Todos os produtos contêm leite e derivados. Podem conter traços de amendoim, avelã, castanhas e glúten.</p>
-        <p class="footer-copyright">&copy; 2025 Chocolates 2 Amores – Geladinhos Gourmet. Todos os direitos reservados.</p>
+        <p class="footer-copyright">&copy; 2025 Chocolates 2 Amores – Criado com ❤️ para adoçar seus dias.</p>
     </div>
   </footer>
 
   <div id="suggestion-modal" class="modal-overlay">
     <div class="modal-content">
       <button class="modal-close-button">&times;</button>
-      <h3 id="modal-title">Sugestões do Chef</h3>
+      <h3 id="modal-title">Dica do Chef</h3>
       <div id="modal-body">
         <div class="spinner"></div>
         <div id="modal-text-content" style="display: none;"></div>
