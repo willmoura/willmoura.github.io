@@ -8,259 +8,99 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- GUIA DE IDENTIDADE VISUAL --- */
+        /* --- GUIA DE IDENTIDADE VISUAL (VISUAL CLEAN) --- */
         :root {
-            --bg-color: #FFF9F0; /* Creme Aconchegante */
+            --bg-color: #FFF9F0;          /* Creme Aconchegante */
             --card-bg: #FFFFFF;
-            --text-color: #5C3D2E; /* Marrom Chocolate */
-            --text-light: #8A6D5F;
-            --primary-color: #FF6B6B; /* Coral Vibrante (para CTAs) */
-            --secondary-color: #E58A8A; /* Rosa Afetivo (para detalhes) */
-            --accent-color: #A8D8B9; /* Verde Menta Suave */
+            --text-color: #7D5A50;        /* NOVO MARROM: Mais claro e suave */
+            --text-light: #B29A91;       /* Tom mais claro para detalhes */
+            --primary-color: #FF6B6B;     /* Coral Vibrante (Mantido) */
+            --secondary-color: #E58A8A;   /* Rosa Afetivo (Mantido) */
+            --accent-color: #D4E9E2;      /* Verde Menta (Versão mais clara) */
             --border-color: #F0E9E1;
             
             --font-title: 'Poppins', sans-serif;
             --font-body: 'Montserrat', sans-serif;
 
-             /* Sombras mais suaves */
             --shadow-color: 30 50% 70%;
             --shadow-elevation-low:
-                0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
-                0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
-                1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.34);
+                0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.2),
+                0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.2),
+                1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.2);
             --shadow-elevation-medium:
-                0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
-                0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
-                2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
-                5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+                0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.25),
+                0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.25),
+                2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.25),
+                5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.25);
         }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #2C1D17;
-                --card-bg: #3E2C24;
-                --text-color: #FFF9F0;
-                --text-light: #B8A89E;
-                --border-color: #5C3D2E;
-                --shadow-color: 30 50% 5%;
-            }
-        }
+        /* Regras de Modo Escuro REMOVIDAS para garantir fundo creme */
 
         /* --- ESTILOS GERAIS --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-body);
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
         }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        h1, h2, h3 {
-            font-family: var(--font-title);
-            color: var(--text-color);
-            line-height: 1.2;
-        }
-
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        h1, h2, h3 { font-family: var(--font-title); color: var(--text-color); line-height: 1.2; }
         h1 { font-size: 3rem; margin-bottom: 1rem; }
         h2 { font-size: 2.2rem; text-align: center; margin-bottom: 2.5rem; }
         h3 { font-size: 1.5rem; color: var(--secondary-color); margin-bottom: 0.5rem; }
 
-        /* --- BOTÕES --- */
+        /* --- COMPONENTES --- */
         .btn {
-            display: inline-block;
-            text-align: center;
-            font-family: var(--font-title);
-            font-weight: 600;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
+            display: inline-block; text-align: center; font-family: var(--font-title); font-weight: 600; text-decoration: none; padding: 12px 24px;
+            border-radius: 50px; transition: all 0.3s ease; border: none; cursor: pointer;
         }
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: #fff;
-        }
-        .btn-primary:hover {
-            transform: scale(1.05);
-            background-color: #ff5252;
-        }
-        .btn-secondary {
-            background-color: var(--secondary-color);
-            color: #fff;
-        }
-        .btn-secondary:hover {
-            background-color: #e07272;
-            transform: scale(1.02);
-        }
+        .btn-primary { background-color: var(--primary-color); color: #fff; }
+        .btn-primary:hover { transform: scale(1.05); background-color: #ff5252; }
+        .btn-secondary { background-color: var(--secondary-color); color: #fff; }
+        .btn-secondary:hover { background-color: #e07272; }
 
-        /* --- HEADER --- */
+        /* --- SEÇÕES DO LAYOUT --- */
         header {
-            background: #fff;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            background: var(--card-bg); padding: 1rem 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100;
         }
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header .logo {
-            font-family: var(--font-title);
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--text-color);
-        }
-        header nav a {
-            margin-left: 1.5rem;
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: bold;
-        }
-        header nav .btn-primary {
-             padding: 10px 24px;
-        }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        header .logo { font-size: 1.5rem; font-weight: 700; text-decoration: none; color: var(--text-color); }
+        header nav a { margin-left: 1.5rem; text-decoration: none; color: var(--text-color); font-weight: bold; }
+        header nav .btn-primary { padding: 10px 24px; }
 
-        /* --- SEÇÃO HERO --- */
-        .hero {
-            text-align: center;
-            padding: 80px 0;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .hero { text-align: center; padding: 80px 0; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        /* --- SEÇÃO DE PRODUTOS --- */
-        .product-section {
-            padding: 60px 0;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+        .product-section { padding: 60px 0; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: var(--shadow-elevation-low);
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            background: var(--card-bg); border-radius: 16px; box-shadow: var(--shadow-elevation-low); padding: 1.5rem; text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column;
         }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-elevation-medium);
-        }
-        .card img {
-            max-width: 100%;
-            height: 200px;
-            object-fit: contain;
-            margin-bottom: 1rem;
-        }
-        .card-content {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .card p {
-            color: var(--text-light);
-            flex-grow: 1;
-            margin-bottom: 1rem;
-        }
-        .card .price {
-            font-weight: bold;
-            margin: 1rem 0;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-        }
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: auto;
-        }
+        .card:hover { transform: translateY(-10px); box-shadow: var(--shadow-elevation-medium); }
+        .card img { max-width: 100%; height: 200px; object-fit: contain; margin-bottom: 1rem; }
+        .card-content { flex-grow: 1; display: flex; flex-direction: column; }
+        .card p { color: var(--text-light); flex-grow: 1; margin-bottom: 1rem; }
+        .card .price { font-weight: bold; margin: 1rem 0; color: var(--primary-color); font-size: 1.1rem; }
+        .button-group { margin-top: auto; }
 
-        /* --- SEÇÃO SOBRE --- */
-        .about-section {
-            background-color: var(--accent-color);
-            padding: 60px 0;
-            text-align: center;
-        }
-        .about-section p {
-            max-width: 700px;
-            margin: 0 auto;
-            color: var(--text-color);
-        }
+        .about-section { background-color: var(--accent-color); padding: 60px 0; text-align: center; }
+        .about-section p { max-width: 700px; margin: 0 auto; color: var(--text-color); }
 
-        /* --- INFO NUTRICIONAL --- */
-        .nutritional-section {
-            padding: 60px 0;
-        }
-        .nutritional-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .nutritional-item {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
-        }
-        .nutritional-item h3 {
-            font-size: 1.2rem;
-            color: var(--text-color);
-        }
-        .nutritional-item p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
+        .nutritional-section { padding: 60px 0; }
+        .nutritional-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .nutritional-item { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; }
+        .nutritional-item h3 { font-size: 1.2rem; color: var(--text-color); }
+        .nutritional-item p { color: var(--text-light); font-size: 0.9rem; }
 
-        /* --- FOOTER --- */
         footer {
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 40px;
-            border-top: 1px solid var(--border-color);
-            background: var(--card-bg);
-            color: var(--text-light);
+            text-align: center; padding: 2rem 0; margin-top: 40px; border-top: 1px solid var(--border-color);
+            background: var(--card-bg); color: var(--text-light);
         }
-        .footer-links a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 600;
-        }
-        footer p {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
+        .footer-links a { color: var(--secondary-color); text-decoration: none; margin: 0 10px; font-weight: 600; }
+        footer p { margin-top: 1rem; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -288,9 +128,8 @@
             <div class="container">
                 <h2>Escolha o seu novo amor (ou vários!)</h2>
                 <div class="product-grid">
-                    <!-- PRODUTOS AQUI -->
                     <article class="card">
-                        <img src="https://willmoura.github.io/assets/kinder_bueno.png" alt="Geladinho Kinder Bueno">
+                        <img src="https://willmoura.github.io/kinderbueno.png" alt="Geladinho Kinder Bueno">
                         <div class="card-content">
                             <h3>Kinder Bueno</h3>
                             <p>A cremosidade do chocolate branco com pedacinhos que amamos.</p>
@@ -301,7 +140,7 @@
                         </div>
                     </article>
                     <article class="card">
-                        <img src="https://willmoura.github.io/assets/charge.png" alt="Geladinho Charge">
+                        <img src="https://willmoura.github.io/charge.png" alt="Geladinho Charge">
                         <div class="card-content">
                             <h3>Charge</h3>
                             <p>A combinação perfeita de chocolate e amendoim que todo mundo ama.</p>
@@ -312,7 +151,7 @@
                         </div>
                     </article>
                     <article class="card">
-                        <img src="https://willmoura.github.io/assets/maracuja.png" alt="Geladinho Maracujá com Nutella">
+                        <img src="https://willmoura.github.io/maracujanutella.png" alt="Geladinho Maracujá com Nutella">
                         <div class="card-content">
                             <h3>Maracujá com Nutella</h3>
                             <p>O azedinho refrescante do maracujá com o abraço cremoso da Nutella.</p>
@@ -323,7 +162,7 @@
                         </div>
                     </article>
                     <article class="card">
-                        <img src="https://willmoura.github.io/assets/prestigio.png" alt="Geladinho Prestígio">
+                        <img src="https://willmoura.github.io/prestigio.png" alt="Geladinho Prestígio">
                         <div class="card-content">
                             <h3>Prestígio</h3>
                             <p>Cremoso com pedaços de coco, coberto com uma casquinha de chocolate.</p>
@@ -334,7 +173,7 @@
                         </div>
                     </article>
                     <article class="card">
-                        <img src="https://willmoura.github.io/assets/pacoca.png" alt="Geladinho Paçoca">
+                        <img src="https://willmoura.github.io/pacoca.png" alt="Geladinho Paçoca">
                         <div class="card-content">
                             <h3>Paçoca</h3>
                             <p>O sabor irresistível da paçoca em uma versão gelada e super cremosa.</p>
@@ -345,7 +184,7 @@
                         </div>
                     </article>
                     <article class="card">
-                        <img src="https://willmoura.github.io/assets/ovomaltine.png" alt="Geladinho Ovomaltine">
+                        <img src="https://willmoura.github.io/ovomaltine.png" alt="Geladinho Ovomaltine">
                         <div class="card-content">
                             <h3>Ovomaltine</h3>
                             <p>Cremosidade e os flocos crocantes de Ovomaltine que todo mundo ama.</p>
@@ -356,7 +195,7 @@
                         </div>
                     </article>
                     <article class="card">
-                        <img src="https://willmoura.github.io/assets/alpino.png" alt="Geladinho gourmet sabor Alpino">
+                        <img src="https://willmoura.github.io/alpino.png" alt="Geladinho gourmet sabor Alpino">
                         <div class="card-content">
                             <h3>Alpino</h3>
                             <p>O sabor único e marcante do chocolate Alpino em uma versão gelada.</p>
@@ -367,7 +206,7 @@
                         </div>
                     </article>
                     <article class="card">
-                        <img src="https://willmoura.github.io/assets/franui.png" alt="Geladinho gourmet sabor Franui">
+                        <img src="https://willmoura.github.io/franui.png" alt="Geladinho gourmet sabor Franui">
                         <div class="card-content">
                             <h3>Franui</h3>
                             <p>Inspirado no famoso doce, com framboesa e uma camada de chocolate branco.</p>
@@ -378,7 +217,7 @@
                         </div>
                     </article>
                     <article class="card">
-                        <img src="https://willmoura.github.io/assets/ferrerorocher.png" alt="Geladinho gourmet sabor Ferrero Rocher">
+                        <img src="https://willmoura.github.io/ferrerorocher.png" alt="Geladinho gourmet sabor Ferrero Rocher">
                         <div class="card-content">
                             <h3>Ferrero Rocher</h3>
                             <p>Avelãs selecionadas e chocolate cremoso, inspirado no bombom.</p>
@@ -389,7 +228,7 @@
                         </div>
                     </article>
                     <article class="card">
-                        <img src="https://willmoura.github.io/assets/pistache.png" alt="Geladinho gourmet sabor Pistache">
+                        <img src="https://willmoura.github.io/pistache.png" alt="Geladinho gourmet sabor Pistache">
                         <div class="card-content">
                             <h3>Pistache</h3>
                             <p>O sabor inconfundível e sofisticado do pistache em um creme gelado.</p>
@@ -400,7 +239,7 @@
                         </div>
                     </article>
                     <article class="card">
-                        <img src="https://willmoura.github.io/assets/ninhonutella.png" alt="Geladinho gourmet sabor Ninho com Nutella">
+                        <img src="https://willmoura.github.io/ninhonutella.png" alt="Geladinho gourmet sabor Ninho com Nutella">
                         <div class="card-content">
                             <h3>Ninho com Nutella</h3>
                             <p>A combinação clássica que todo mundo ama, agora na versão geladinha.</p>
@@ -487,3 +326,4 @@
     </footer>
 </body>
 </html>
+
